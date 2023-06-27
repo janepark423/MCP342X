@@ -8,6 +8,7 @@ int8_t usr_i2c_write(const uint8_t busAddr, const uint8_t *data, const uint32_t 
     mcp342x_return_code_t ret = MCP342x_RET_OK;
 
     // Transmit the data to the specified device from the provided
+    // 특정 디바이스로 데이터 전송
     // data buffer.
 
     return ret;
@@ -17,6 +18,7 @@ int8_t usr_i2c_read(const uint8_t busAddr, uint8_t *data, const uint32_t len) {
     mcp342x_return_code_t ret = MCP342x_RET_OK;
 
     // Received the specified amount of data from the device and store it
+    // 디바이스로부터 지정된 양의 데이터를 수신하여 저장
     // in the data buffer
 
     return ret;
@@ -30,6 +32,7 @@ int main(void) {
     mcp342x_return_code_t ret = MCP342x_RET_OK;
 
     // Create an instance of our mcp342x device
+    // mcp342x 장치 인스턴스 생성
     mcp342x_dev_t dev;
 
     // Provide the hardware abstraction functions for
@@ -40,6 +43,7 @@ int main(void) {
     dev.intf.delay_us = usr_delay_us;
 
     // Init our desired config
+    // 원하는 구성을 초기화합니다.
     dev.registers.bits.config.bits.conv_mode = MCP342x_CM_CONT;
     dev.registers.bits.config.bits.gain = MCP342x_GAIN_x1;
     dev.registers.bits.config.bits.sample_rate = MCP342x_SR_60SPS;
